@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdn.bootcss.com/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+		<link href="source/css/main.css" rel="stylesheet">
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<script src="https://cdn.bootcss.com/moment.js/2.22.0/moment-with-locales.js"></script>
+		<script src="source/js/vue.js"></script>
+		<script src="source/js/vue-resource.min.js"></script>
+
+		<script src="source/layer/layer.js"></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, 
+		                                     initial-scale=1.0, 
+		                                     maximum-scale=1.0, 
+		                                     user-scalable=no">
+
+		<title>生成页</title>
+	</head>
+	<body>
+		<div id="main" class="container">
+			<div class="row">
+				<div id="window" class="col-xs-12 col-md-6 col-md-offset-3">
+					<div class="tab-content">
+					    <div id="d1" class="tab-pane fade in active">
+							<div class="panel panel-default panel_content">
+								<div class="panel-heading">
+									<h3 class="panel-title"> 
+										第一步：填写你的基本信息（1/5）
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="center">
+										<div class="name">
+											<div class="input-group">
+											    <span class="input-group-addon">姓名：</span>
+											    <input type="text" class="form-control"  v-model="user.name" placeholder="请输入">
+											</div>
+										</div>
+										<div class="age">
+											<div class="input-group">
+											    <span class="input-group-addon">年龄：</span>
+											    <input type="number" class="form-control"  v-model="user.age" placeholder="请输入">
+											</div>
+										</div>
+										<div class="city">
+											<div class="input-group">
+											    <span class="input-group-addon">城市：</span>
+											    <input type="text" class="form-control"   v-model="user.city" placeholder="请输入">
+											</div>
+										</div>
+										<div class="address">
+											<div class="input-group">
+												<span class="input-group-addon">住址：</span>
+												<input type="text" class="form-control"  v-model="user.address" placeholder="请输入">
+											</div>
+										</div>
+										<div class="email">
+											<div class="input-group">
+												<span class="input-group-addon">邮箱：</span>
+												<input type="email" class="form-control"  v-model="user.email" placeholder="请输入">
+											</div>
+										</div>
+										<div class="phone">
+											<div class="input-group">
+											    <span class="input-group-addon">手机：</span>
+											    <input type="number" class="form-control"  v-model="user.phone" placeholder="请输入">
+											</div>
+										</div>
+										<div class="weixin">
+											<div class="input-group">
+											    <span class="input-group-addon">微信：</span>
+											    <input type="text" class="form-control"   v-model="user.weixin" placeholder="请输入">
+											</div>
+										</div>
+										<div class="qq">
+											<div class="input-group">
+											    <span class="input-group-addon">ＱＱ：</span>
+											    <input type="text" class="form-control"   v-model="user.qq" placeholder="请输入">
+											</div>
+										</div>
+										<div class="weibo">
+											<div class="input-group">
+											    <span class="input-group-addon">微博：</span>
+											    <input type="text" class="form-control"  v-model="user.weibo" placeholder="请输入">
+											</div>
+										</div>
+										<div class="sex">
+											<p class="cneter_title">性别</p>
+											<div class="center_content btn-group" data-toggle="buttons">
+												<label class="btn btn-primary" @click="nan">
+													<input type="radio" name="options" value="nan" v-model="user.sex" id="sex1"> 男
+												</label>
+												<label class="btn btn-primary" @click="nv">
+													<input type="radio" name="options"  value="nv" v-model="user.sex" id="sex2"> 女
+												</label>
+											</div>
+										</div>
+										<div class="info">
+											<p class="cneter_title">个人简介</p>
+											<div class="center_content">
+												 <textarea class="form-control"  v-model="user.description"></textarea>
+											</div>
+										</div>
+										<div class="submit">
+											<div class="center_content">
+												 <a class="btn btn-info btn-block" @click="userClick" href="#d2" data-toggle="tab">下一步</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+					    </div>
+					    <div id="d2" class="tab-pane fade">
+					       <div class="panel panel-default panel_content">
+					       	<div class="panel-heading">
+					       		<h3 class="panel-title">
+					       			第二步：填写你的教育经历（2/5）
+					       		</h3>
+					       	</div>
+					       	<div class="panel-body">
+					       		<div class="center">
+					       			<div class="name">
+					       				<div class="input-group">
+					       				    <span class="input-group-addon">学校名称：</span>
+					       				    <input type="text" class="form-control" v-model="edu.school"  placeholder="请输入">
+					       				</div>
+					       			</div>
+					       			<div class="age">
+					       				<div class="input-group">
+					       				    <span class="input-group-addon">所学专业：</span>
+					       				    <input type="text" class="form-control"  v-model="edu.study"  placeholder="请输入">
+					       				</div>
+					       			</div>
+					       			<div class="date">
+					       				<p class="cneter_title">入学日期</p>
+										<input type='date' class="form-control"  v-model="edu.start" />
+					       			</div>
+					       			<div class="date">
+					       				<p class="cneter_title">毕业日期</p>
+					       				<input type='date' class="form-control"  v-model="edu.end" />
+
+					       			</div>
+					       			<div class="info">
+					       				<p class="cneter_title">教育经历介绍</p>
+					       				<div class="center_content">
+					       					 <textarea class="form-control"  v-model="edu.description" ></textarea>
+					       				</div>
+					       			</div>
+					       			<div class="submit">
+					       				<div class="center_content">
+											 <a class="btn btn-info btn-block" @click="saveEdu" href="javascript:void(0)" data-toggle="tab">继续增加教育经历</a>
+											 <a class="btn btn-info btn-block" href="#d1" data-toggle="tab">上一步</a>
+					       					 <a class="btn btn-info btn-block" href="#d3" @click="eduClick" data-toggle="tab">下一步</a>
+					       				</div>
+					       			</div>
+					       		</div>
+					       	</div>
+					       </div>
+					    </div>
+					    <div id="d3" class="tab-pane fade">
+					        <div class="panel panel-default panel_content">
+					        	<div class="panel-heading">
+					        		<h3 class="panel-title">
+					        			第三步：填写你的工作经历（3/5）
+					        		</h3>
+					        	</div>
+					        	<div class="panel-body">
+					        		<div class="center">
+					        			<div class="name">
+					        				<div class="input-group">
+					        				    <span class="input-group-addon">公司名称：</span>
+					        				    <input type="text" class="form-control" v-model="work.company"  placeholder="请输入">
+					        				</div>
+					        			</div>
+					        			<div class="age">
+					        				<div class="input-group">
+					        				    <span class="input-group-addon">职位名称：</span>
+					        				    <input type="text" class="form-control" v-model="work.job"   placeholder="请输入">
+					        				</div>
+					        			</div>
+					        			<div class="date">
+					        				<p class="cneter_title">开始日期</p>
+					        				<input type='date' class="form-control" v-model="work.start"  />
+
+					        			</div>
+					        			<div class="date">
+					        				<p class="cneter_title">结束日期</p>
+											<input type='date' class="form-control" v-model="work.end"  />
+					        			</div>
+					        			<div class="info">
+					        				<p class="cneter_title">工作经历介绍</p>
+					        				<div class="center_content">
+					        					 <textarea class="form-control" v-model="work.description"  ></textarea>
+					        				</div>
+					        			</div>
+					        			<div class="submit">
+					        				<div class="center_content">
+					        											 <a class="btn btn-info btn-block" @click="saveWork" href="javascript:void(0)" data-toggle="tab">继续增加工作经历</a>
+					        											 <a class="btn btn-info btn-block" @click="backEdu" href="#d2" data-toggle="tab">上一步</a>
+					        					 <a class="btn btn-info btn-block" href="#d4" @click="workClick" data-toggle="tab">下一步</a>
+					        				</div>
+					        			</div>
+					        		</div>
+					        	</div>
+					        </div>
+					    </div>
+						<div id="d4" class="tab-pane fade">
+							<div class="panel panel-default panel_content">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										第四步：丰富你的技能列表（4/5）
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="center">
+										<div class="info">
+											<p class="cneter_title">输入你的技能，多个技能通过空格隔开</p>
+											<div class="center_content">
+												 <textarea class="form-control" v-model="skill.keywords"  placeholder="示例: Java 卖萌 吟诗 作对 唱歌 跳舞"></textarea>
+											</div>
+										</div>
+										<div class="submit">
+											<div class="center_content">
+												<a class="btn btn-info btn-block" href="#d3" @click="backWork" data-toggle="tab">上一步</a>
+												<a class="btn btn-info btn-block" href="#d5" @click="skillClick" data-toggle="tab">下一步</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="d5" class="tab-pane fade">
+
+							<div class="panel panel-default panel_content">
+								<div class="panel-heading">
+									<h3 class="panel-title">
+										第五步：请描述你的两个特长领域（5/5）
+									</h3>
+								</div>
+								<div class="panel-body">
+									<div class="center">
+										<div class="name">
+											<span class="cneter_title">特长名称一：</span>
+											<div class="center_content">
+												<input type="text" class="form-control" v-model="specialty1.name" placeholder="请输入">
+											</div>
+										</div>
+										<div class="info">
+											<span class="cneter_title">特长描述一：</span>
+											<div class="center_content">
+												<textarea class="form-control" v-model="specialty1.description" ></textarea>
+											</div>
+										</div>
+										<br>
+										<div class="name">
+											<span class="cneter_title">特长名称二：</span>
+											<div class="center_content">
+												<input type="text" class="form-control" v-model="specialty2.name"   placeholder="请输入">
+											</div>
+										</div>
+										<div class="info">
+											<span class="cneter_title">特长描述二：</span>
+											<div class="center_content">
+												<textarea class="form-control" v-model="specialty2.description"></textarea>
+											</div>
+										</div>
+										<br>
+										<div class="submit">
+											<div class="center_content">
+												<a class="btn btn-info btn-block" href="#d4" data-toggle="tab">上一步</a>
+												<a class="btn btn-info btn-block" href="#d6"  @click="submitClick" data-toggle="tab">开始生成个人主页</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div id="d6" class="tab-pane fade">
+
+						<div class="panel panel-default panel_content">
+							<div class="panel-heading">
+								<h3 class="panel-title">
+									{{title}}
+								</h3>
+							</div>
+							<div class="panel-body">
+								<div class="center">
+									<h1>{{title}}</h1>
+									<h3 v-html="result"></h3>
+									<br>
+									<div class="submit">
+										<div class="center_content">
+											<a class="btn btn-info btn-block" href="javascript:window.location.reload()" data-toggle="tab">再生成一个</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+<script src="source/js/index.js"></script>
+</html>

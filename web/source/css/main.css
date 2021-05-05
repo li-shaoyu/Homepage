@@ -1,0 +1,24 @@
+body{
+	background-color: #7FaaD4;
+}
+#main{
+	padding: 0.25rem;
+	margin: 0 auto;
+}
+.sex .center_content{
+	width:100%;
+}
+.sex .center_content>.btn{
+	width:50%;
+}
+.panel_content{
+	padding: 1.875rem;
+}
+.center>div{
+	margin-top: 10px
+}
+@media (min-width: 768px) {
+	#main{
+		padding: 2rem;
+	}
+}
