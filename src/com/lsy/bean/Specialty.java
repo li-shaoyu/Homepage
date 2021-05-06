@@ -87,11 +87,14 @@ public class Specialty {
     public void setNext(Specialty next) {
         this.next = next;
     }
-    // Specialty构造方法
+
+
+    // Specialty无参构造方法
     public Specialty() {
     }
 
 
+    // 基本信息+id
     public Specialty(int id, int userId, String name, String description) {
         this.id = id;
         this.userId = userId;
@@ -99,6 +102,7 @@ public class Specialty {
         this.description = description;
     }
 
+    // test
     public Specialty(int userId, String name, String description) {
         this.userId = userId;
         this.name = name;

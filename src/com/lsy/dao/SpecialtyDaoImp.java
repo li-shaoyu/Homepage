@@ -16,9 +16,10 @@ import java.sql.SQLException;
  * @Param
  * @return
  */
-public class SpecialtyDaoImp implements BaseDao<Specialty>{
-    // 数据库操作语句
-    private static final String SQL_INSERT = "insert into" +
+public class SpecialtyDaoImp implements BaseDao<Specialty> {
+
+    // 数据库操作语句,注意换行时into后面的空格，test时出现了SQL语句异常
+    private static final String SQL_INSERT = "insert into " +
             "kkb_specialty(userid,name,description) values(?,?,?)";
     private static final String SQL_FIND_BY_USERID = "select * from kkb_specialty where userid=?";
 
@@ -44,9 +45,10 @@ public class SpecialtyDaoImp implements BaseDao<Specialty>{
 
             // 5. 将新增的用户的标识（row），作为此段代码的执行结果 返回
             return row > 0 ? row : -1;
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
-        }finally {
+        } finally {
             // 6.把连接释放
             DBUtil.close(conn, state, resultSet);
         }
@@ -54,21 +56,27 @@ public class SpecialtyDaoImp implements BaseDao<Specialty>{
     }
 
     @Override
-    public Specialty findByUserId(int userId){
+    public Specialty findByUserId(int userId) {
+        // 1. 建立数据库连接
         Connection conn = DBUtil.getConn();
+
+        // 2. 创建sql执行环境：state，并编译语句
         PreparedStatement state = null;
         ResultSet resultSte = null;
         Specialty specialty = null;
         try {
+            // 3. 填充？
             state = conn.prepareStatement(SQL_FIND_BY_USERID);
-            state.setInt(1,userId);
+            state.setInt(1, userId);
+
+            // 4. 执行sql
             resultSte = state.executeQuery();
-            while(resultSte.next()){
-                if(specialty != null){
+            while (resultSte.next()) {
+                if (specialty != null) {
                     Specialty temp = new Specialty();
                     temp.setNext(specialty);
                     specialty = temp;
-                }else{
+                } else {
                     specialty = new Specialty();
                 }
                 int id = resultSte.getInt("id");
@@ -82,7 +90,7 @@ public class SpecialtyDaoImp implements BaseDao<Specialty>{
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            DBUtil.close(conn,state,resultSte);
+            DBUtil.close(conn, state, resultSte);
         }
         return specialty;
     }

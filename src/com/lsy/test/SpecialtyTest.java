@@ -16,8 +16,8 @@ import com.lsy.dao.UserDaoImp;
 public class SpecialtyTest {
     public static void main(String[] args) {
         BaseDao<Specialty> dao = new SpecialtyDaoImp();
-        Specialty user = new Specialty(100,"测试一","特长测试");
-        int id = dao.insert(user);
-        System.out.println(id);
+        Specialty specialty = new Specialty(100,"测试一","特长测试");
+        dao.insert(specialty);
+
     }
 }
