@@ -53,9 +53,9 @@ CREATE TABLE `kkb_user` (
   `address` varchar(256) DEFAULT NULL COMMENT '详细地址',
   `email` varchar(64) DEFAULT NULL COMMENT '邮箱地址',
   `phone` varchar(32) DEFAULT NULL COMMENT '电话或手机号码',
-  `weixin` varchar(64) DEFAULT NULL COMMENT '微信号码',
-  `qq` varchar(32) DEFAULT NULL COMMENT 'qq号码',
-  `weibo` varchar(256) DEFAULT NULL COMMENT '微博地址',
+  `niuke` varchar(64) DEFAULT NULL COMMENT '牛客网号码',
+  `github` varchar(32) DEFAULT NULL COMMENT 'github号码',
+  `CSDN` varchar(256) DEFAULT NULL COMMENT 'CSDN地址',
   `sex` varchar(8) DEFAULT NULL COMMENT '用户性别',
   `description` varchar(1024) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL COMMENT '个人简介',
   PRIMARY KEY (`id`)

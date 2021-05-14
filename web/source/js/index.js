@@ -14,9 +14,9 @@ const v1 = new Vue({
             address:"",
             email:"",
             phone:"",
-            weixin:"",
-            qq:"",
-            weibo:"",
+            niuke:"",
+            github:"",
+            CSDN:"",
             sex:"",
             description:""
         },

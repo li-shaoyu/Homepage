@@ -16,7 +16,7 @@ public class UserDaoImp implements BaseDao<User> {
 
     // 用于操作数据库存储的sql
     private static final String SQL_INSERT = "insert into " +
-            "kkb_user(name,age,city,address,email,phone,weixin,qq,weibo,sex,description) " +
+            "kkb_user(name,age,city,address,email,phone,niuke,github,CSDN,sex,description) " +
             "values(?,?,?,?,?,?,?,?,?,?,?)";
 
     // 用于操作数据库获取用户基本信息的sql
@@ -40,9 +40,9 @@ public class UserDaoImp implements BaseDao<User> {
             statement.setString(4, user.getAddress());
             statement.setString(5, user.getEmail());
             statement.setString(6, user.getPhone());
-            statement.setString(7, user.getWeixin());
-            statement.setString(8, user.getQq());
-            statement.setString(9, user.getWeibo());
+            statement.setString(7, user.getniuke());
+            statement.setString(8, user.getgithub());
+            statement.setString(9, user.getCSDN());
             statement.setString(10, user.getSex());
             statement.setString(11, user.getDescription());
 
@@ -89,13 +89,13 @@ public class UserDaoImp implements BaseDao<User> {
                 String address = result.getString("address");
                 String email = result.getString("email");
                 String phone = result.getString("phone");
-                String weixin = result.getString("weixin");
-                String qq = result.getString("qq");
-                String weibo = result.getString("weibo");
+                String niuke = result.getString("niuke");
+                String github = result.getString("github");
+                String CSDN = result.getString("CSDN");
                 String sex = result.getString("sex");
                 String description = result.getString("description");
 
-                User user = new User(userId, name, age, city, address, email, phone, weixin, qq, weibo, sex, description);
+                User user = new User(userId, name, age, city, address, email, phone, niuke, github, CSDN, sex, description);
 
                 // 6. 将组装完毕的user，作为此段代码的执行结果，返回给调用者
                 return user;

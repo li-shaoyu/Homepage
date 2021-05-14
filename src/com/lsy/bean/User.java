@@ -23,19 +23,19 @@ public class User {
     private String email;
     // 用户电话
     private String phone;
-    // 用户微信
-    private String weixin;
-    // 用户qq
-    private String qq;
-    // 用户微博
-    private String weibo;
+    // 用户牛客网
+    private String niuke;
+    // 用户github
+    private String github;
+    // 用户CSDN
+    private String CSDN;
     // 用户性别
     private String sex;
     // 个人介绍
     private String description;
 
     // 全参构造方法
-    public User(int id, String name, int age, String city, String address, String email, String phone, String weixin, String qq, String weibo, String sex, String description) {
+    public User(int id, String name, int age, String city, String address, String email, String phone, String niuke, String github, String CSDN, String sex, String description) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -43,9 +43,9 @@ public class User {
         this.address = address;
         this.email = email;
         this.phone = phone;
-        this.weixin = weixin;
-        this.qq = qq;
-        this.weibo = weibo;
+        this.niuke = niuke;
+        this.github = github;
+        this.CSDN = CSDN;
         this.sex = sex;
         this.description = description;
     }
@@ -55,16 +55,16 @@ public class User {
     }
 
     // 前端传来的参数,无ID
-    public User(String name, int age, String city, String address, String email, String phone, String weixin, String qq, String weibo, String sex, String description) {
+    public User(String name, int age, String city, String address, String email, String phone, String niuke, String github, String CSDN, String sex, String description) {
         this.name = name;
         this.age = age;
         this.city = city;
         this.address = address;
         this.email = email;
         this.phone = phone;
-        this.weixin = weixin;
-        this.qq = qq;
-        this.weibo = weibo;
+        this.niuke = niuke;
+        this.github = github;
+        this.CSDN = CSDN;
         this.sex = sex;
         this.description = description;
     }
@@ -79,9 +79,9 @@ public class User {
                 ", address='" + address + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", weixin='" + weixin + '\'' +
-                ", qq='" + qq + '\'' +
-                ", weibo='" + weibo + '\'' +
+                ", niuke='" + niuke + '\'' +
+                ", github='" + github + '\'' +
+                ", CSDN='" + CSDN + '\'' +
                 ", sex='" + sex + '\'' +
                 ", description='" + description + '\'' +
                 '}';
@@ -99,16 +99,16 @@ public class User {
                 Objects.equals(address, user.address) &&
                 Objects.equals(email, user.email) &&
                 Objects.equals(phone, user.phone) &&
-                Objects.equals(weixin, user.weixin) &&
-                Objects.equals(qq, user.qq) &&
-                Objects.equals(weibo, user.weibo) &&
+                Objects.equals(niuke, user.niuke) &&
+                Objects.equals(github, user.github) &&
+                Objects.equals(CSDN, user.CSDN) &&
                 Objects.equals(sex, user.sex) &&
                 Objects.equals(description, user.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, age, city, address, email, phone, weixin, qq, weibo, sex, description);
+        return Objects.hash(id, name, age, city, address, email, phone, niuke, github, CSDN, sex, description);
     }
 
     public int getId() {
@@ -167,28 +167,28 @@ public class User {
         this.phone = phone;
     }
 
-    public String getWeixin() {
-        return weixin;
+    public String getniuke() {
+        return niuke;
     }
 
-    public void setWeixin(String weixin) {
-        this.weixin = weixin;
+    public void setniuke(String niuke) {
+        this.niuke = niuke;
     }
 
-    public String getQq() {
-        return qq;
+    public String getgithub() {
+        return github;
     }
 
-    public void setQq(String qq) {
-        this.qq = qq;
+    public void setgithub(String github) {
+        this.github = github;
     }
 
-    public String getWeibo() {
-        return weibo;
+    public String getCSDN() {
+        return CSDN;
     }
 
-    public void setWeibo(String weibo) {
-        this.weibo = weibo;
+    public void setCSDN(String CSDN) {
+        this.CSDN = CSDN;
     }
 
     public String getSex() {

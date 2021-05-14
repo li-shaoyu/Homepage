@@ -61,19 +61,19 @@ function changeUserText(user){
     $(".user-city").text(user.city);
     $(".user-phone").text(user.phone);
     $(".user-email").text(user.email);
-    $(".user-weixin").text(user.weixin);
+    $(".user-niuke").text(user.niuke);
     $(".user-address").text(user.address);
     $(".user-description").text(user.description);
 }
 
 function changeUserAddr(user){
     $(".user-name,.user-name-alt").attr("title",user.name);
-    $(".user-weibo-href").attr("href",user.weibo);
-    $(".user-weibo-href").attr("title",user.weibo);
-    $(".user-weixin-href").attr("href","javascript:void(0)");
-    $(".user-weixin-href").attr("title",user.weixin);
-    $(".user-qq-href").attr("href","https://wpa.qq.com/msgrd?v=3&uin="+user.qq+"&site=qq&menu=yes");
-    $(".user-qq-href").attr("title",user.qq);
+    $(".user-CSDN-href").attr("href","https://blog.csdn.net/"+user.CSDN);
+    $(".user-CSDN-href").attr("title",user.CSDN);
+    $(".user-niuke-href").attr("href","https://www.nowcoder.com/profile/"+user.niuke);
+    $(".user-niuke-href").attr("title",user.niuke);
+    $(".user-github-href").attr("href","https://github.com/"+user.github);
+    $(".user-github-href").attr("title",user.github);
     $("a.user-email").attr("href","mailto:"+user.email);
     $(".user-phone-href").attr("href","tel:"+user.phone);
     if(user.sex == null || user.sex == "nan"){

@@ -40,14 +40,14 @@ public class UserServlet extends HttpServlet {
         String address = request.getParameter("address");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
-        String weixin = request.getParameter("weixin");
-        String qq = request.getParameter("qq");
-        String weibo = request.getParameter("weibo");
+        String niuke = request.getParameter("niuke");
+        String github = request.getParameter("github");
+        String CSDN = request.getParameter("CSDN");
         String sex = request.getParameter("sex");
         String description = request.getParameter("description");
 
         // 3. 将接收的数据，组装为bean
-        User user = new User(name, age, city, address, email, phone, weixin, qq, weibo, sex, description);
+        User user = new User(name, age, city, address, email, phone, niuke, github, CSDN, sex, description);
 
         // 4. 把bean交给service层代理,代理层知道该把数据交给哪个数据库操作类
         int id = DBService.insertUser(user);
